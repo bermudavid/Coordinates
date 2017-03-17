@@ -63,13 +63,13 @@ public class Cartesian {
             cil.setFi(0);           
         } else {
             cil.setP(Math.sqrt((x*x) + (y*y)));
-            cil.setFi(Math.atan(y/x));
+            cil.setFi(Math.atan2(y,x));
         } 
         cil.setZ(z);
         return cil;
     }
     /**
-     * 
+     * Turns the cartesians coordinates into Spherical
      * @return object in cilindrical coordinates
      */
     public Spherical toSpherical(){
@@ -78,8 +78,8 @@ public class Cartesian {
         if((x == 0 && y == 0 && z == 0))
             return sph;
         sph.setR(Math.sqrt(x*x + y*y + z*z));
-        sph.setTheta( (Math.atan(Math.sqrt(x*x + y*y)/z)) );
-        sph.setFi(Math.atan(y/x));
+        sph.setTheta( (Math.atan2(Math.sqrt(x*x + y*y),z)) );
+        sph.setFi(Math.atan2(y,x));
         return sph;
     }
     @Override

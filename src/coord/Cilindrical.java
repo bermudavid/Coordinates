@@ -49,7 +49,7 @@ public class Cilindrical {
         this.z = z;
     }
     /**
-     * turn Cilindrical into Cartesian
+     * Turn the Cilindrical coordinates into Cartesian
      * @return Cartesian objetc
      */
     public Cartesian toCartesian(){
@@ -59,7 +59,18 @@ public class Cilindrical {
         cart.setZ(z);
         return cart;
     }
-    
+    /**
+     * Turns the Cilindrical coordinates into Spherical
+     * @return object in spherical coordinates
+     */
+    public Spherical toSpherical(){
+        Spherical sph = new Spherical();
+        
+        sph.setR(Math.sqrt(p*p + z*z));
+        sph.setTheta(Math.atan2(p,z));
+        sph.setFi(fi);
+        return sph;
+    }
     
     
     @Override
