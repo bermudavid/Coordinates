@@ -78,7 +78,7 @@ public class Spherical {
         return cil;
     }
 
-    
+   
     @Override
     public String toString(){
         return  "Spherical coordinates: r = " + r + ", " + "Theta = " + theta + ", " + "Phi = " + fi;
