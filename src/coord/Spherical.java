@@ -6,7 +6,7 @@
 package coord;
 
 /**
- *
+ * This class is a representation of Spherical cords
  * @author Bermu
  */
 public class Spherical {
@@ -53,6 +53,31 @@ public class Spherical {
     public void setFi(double fi) {
         this.fi = fi;
     }
+    
+    /**
+     * Turns the Spherical coordinates into Cartesian
+     * @return object in Cartesian coordinates
+     */
+    public Cartesian toCartesian(){
+        Cartesian cart = new Cartesian();
+        cart.setX(r*Math.sin(theta)*Math.cos(fi));
+        cart.setY(r*Math.sin(theta)*Math.sin(fi));
+        cart.setZ(r*Math.cos(fi));
+        return cart;
+    }
+        
+    /**
+     * Turns the Spherical coordinates into Cilindrical
+     * @return object in Cilindrical coordinates
+     */
+    public Cilindrical toCilindrical(){
+        Cilindrical cil = new Cilindrical();
+        cil.setP(r*Math.sin(theta));
+        cil.setZ(r*Math.cos(theta));
+        cil.setFi(fi);
+        return cil;
+    }
+
     
     @Override
     public String toString(){
