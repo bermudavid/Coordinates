@@ -17,12 +17,26 @@ public class Conversor {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Cartesian cart = new Cartesian(0,0,0);
-        Cilindrical cil = new Cilindrical();
+        //initializations
+        Cartesian cart = new Cartesian(0,0,1);
+        Cilindrical cil = cart.toCilindrical();
+        Spherical sph = cart.toSpherical();
+        /* Test
+        System.out.println("Cartesian in others");
+        System.out.println(cart.toString());
+        System.out.println(cil.toString());
+        System.out.println(sph.toString());
+        */
         
-        cil = cart.toCilindrical(); // returns objects type Cilindrical
+        //new inits
+        cil = new Cilindrical(1,5,0);
+        cart = cil.toCartesian();
+        //Test 2
         
-        System.out.println(cil.getP() + " " + cil.getFi()+ " " + cil.getZ());
+        System.out.println("Cilindrical in others");
+        System.out.println(cil.toString());
+        System.out.println(cart.toString());
+        //System.out.println(sph.toString());
         
     }
     

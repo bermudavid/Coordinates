@@ -48,6 +48,23 @@ public class Cilindrical {
     public void setZ(double z) {
         this.z = z;
     }
-
+    /**
+     * turn Cilindrical into Cartesian
+     * @return Cartesian objetc
+     */
+    public Cartesian toCartesian(){
+        Cartesian cart = new Cartesian();
+        cart.setX(p*Math.cos(fi));
+        cart.setY(p*Math.sin(fi));
+        cart.setZ(z);
+        return cart;
+    }
+    
+    
+    
+    @Override
+    public String toString(){
+        return  "Cilindrical coordinates: p = " + p + ", " + "Phi = " + fi + ", " + "z = " + z;
+    }
     
 }

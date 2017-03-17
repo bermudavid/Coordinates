@@ -19,6 +19,11 @@ public class Cartesian {
         this.y = y;
         this.z = z;
     }
+    public Cartesian(){
+        this.x = 0;
+        this.y = 0;
+        this.z = 0;
+    }
 
     public double getX() {
         return x;
@@ -48,26 +53,38 @@ public class Cartesian {
     
     /**
      * 
-     * x must be != 0
-     * @param cord Object in Cartesians coordinates
+     * Turns the cartesians coordinates into Cilindrical
      * @return Objetc in Cilindrical coords
      */
     public Cilindrical toCilindrical(){
         Cilindrical cil = new Cilindrical();
-        
         if(x == 0 && y == 0){
             cil.setP(0);
-            cil.setFi(0);
-            
+            cil.setFi(0);           
         } else {
             cil.setP(Math.sqrt((x*x) + (y*y)));
             cil.setFi(Math.atan(y/x));
         } 
         cil.setZ(z);
-        
         return cil;
     }
-    
-    
+    /**
+     * 
+     * @return object in cilindrical coordinates
+     */
+    public Spherical toSpherical(){
+        Spherical sph = new Spherical();
+        
+        if((x == 0 && y == 0 && z == 0))
+            return sph;
+        sph.setR(Math.sqrt(x*x + y*y + z*z));
+        sph.setTheta( (Math.atan(Math.sqrt(x*x + y*y)/z)) );
+        sph.setFi(Math.atan(y/x));
+        return sph;
+    }
+    @Override
+    public String toString(){
+        return  "Cartesians coordinates: x = " + x + ", " + "y = " + y + ", " + "z = " + z;
+    }
     
 }
