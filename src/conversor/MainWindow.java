@@ -19,7 +19,10 @@ public class MainWindow extends javax.swing.JFrame {
     public MainWindow() {
         initComponents();
     }
-
+    // variable from flood control
+    boolean isCartesian = false;
+    boolean isCilindrical = false;
+    boolean isSpherical = false;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,6 +47,13 @@ public class MainWindow extends javax.swing.JFrame {
         zCTF = new javax.swing.JTextField();
         Z2 = new javax.swing.JLabel();
         Convert = new javax.swing.JButton();
+        Titulo3 = new javax.swing.JLabel();
+        p1 = new javax.swing.JLabel();
+        phi1 = new javax.swing.JLabel();
+        Z3 = new javax.swing.JLabel();
+        rTF = new javax.swing.JTextField();
+        thetaTF = new javax.swing.JTextField();
+        fiSTF = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,12 +67,27 @@ public class MainWindow extends javax.swing.JFrame {
 
         xTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         xTF.setText("0");
+        xTF.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                xTFPropertyChange(evt);
+            }
+        });
 
         yTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         yTF.setText("0");
+        yTF.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                yTFPropertyChange(evt);
+            }
+        });
 
         zTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         zTF.setText("0");
+        zTF.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                zTFPropertyChange(evt);
+            }
+        });
 
         Titulo2.setText("Cilindrical Coordinates");
 
@@ -75,11 +100,21 @@ public class MainWindow extends javax.swing.JFrame {
                 pTFActionPerformed(evt);
             }
         });
+        pTF.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                pTFPropertyChange(evt);
+            }
+        });
 
         phi.setText("φ");
 
         fiTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         fiTF.setText("0");
+        fiTF.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                fiTFPropertyChange(evt);
+            }
+        });
 
         zCTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         zCTF.setText("0");
@@ -98,64 +133,109 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
+        Titulo3.setText("Spherical Coordinates");
+
+        p1.setText("r");
+
+        phi1.setText("φ");
+
+        Z3.setText("θ");
+
+        rTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        rTF.setText("0");
+        rTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rTFActionPerformed(evt);
+            }
+        });
+        rTF.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                rTFPropertyChange(evt);
+            }
+        });
+
+        thetaTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        thetaTF.setText("0");
+        thetaTF.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                thetaTFPropertyChange(evt);
+            }
+        });
+
+        fiSTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        fiSTF.setText("0");
+        fiSTF.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                fiSTFPropertyChange(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(23, 23, 23)
-                                        .addComponent(pTF, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(Titulo2))
-                                .addGap(11, 11, 11))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(46, 46, 46)
-                                .addComponent(p)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fiTF, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(phi)
-                                .addGap(8, 8, 8))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(X)
-                        .addGap(91, 91, 91)
-                        .addComponent(Y))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Titulo1)
-                        .addGap(43, 43, 43))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(xTF, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(zTF, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addComponent(yTF, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addComponent(Z))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(zCTF, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(Z2)))))
-                .addContainerGap(226, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(Convert, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(91, 91, 91))
+                                .addGap(34, 34, 34)
+                                .addComponent(pTF, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(33, 33, 33)
+                                .addComponent(rTF, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(114, 114, 114)
+                                .addComponent(p)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(fiTF, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                    .addComponent(thetaTF))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(fiSTF, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(zCTF, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(108, 108, 108)
+                                .addComponent(phi)
+                                .addGap(183, 183, 183)
+                                .addComponent(Z2))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(115, 115, 115)
+                        .addComponent(X)
+                        .addGap(192, 192, 192)
+                        .addComponent(Y)
+                        .addGap(183, 183, 183)
+                        .addComponent(Z))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(114, 114, 114)
+                        .addComponent(p1)
+                        .addGap(196, 196, 196)
+                        .addComponent(Z3)
+                        .addGap(183, 183, 183)
+                        .addComponent(phi1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(xTF, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(zTF, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(yTF, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(269, 269, 269)
+                        .addComponent(Titulo1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(269, 269, 269)
+                        .addComponent(Titulo2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(267, 267, 267)
+                        .addComponent(Titulo3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(267, 267, 267)
+                        .addComponent(Convert, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,21 +252,37 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(yTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(zTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(xTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(Titulo2)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(p)
-                    .addComponent(phi)
-                    .addComponent(Z2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(zCTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fiTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(69, 69, 69)
-                .addComponent(Convert, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 54, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(Titulo2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(p)
+                            .addComponent(phi)
+                            .addComponent(Z2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(zCTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fiTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Titulo3)
+                        .addGap(25, 25, 25)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(p1)
+                            .addComponent(Z3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(fiSTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(thetaTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(rTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(31, 31, 31)
+                        .addComponent(Convert, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(131, 131, 131)
+                        .addComponent(phi1)))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         pack();
@@ -197,29 +293,129 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_pTFActionPerformed
 
     private void zCTFPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_zCTFPropertyChange
-
+        setCilindricalT();
     }//GEN-LAST:event_zCTFPropertyChange
 
+    public void initCartesianVals(Cartesian cart){
+            cart.setX(Double.parseDouble(xTF.getText()));
+            cart.setY(Double.parseDouble(yTF.getText()));
+            cart.setZ(Double.parseDouble(zTF.getText()));
+    }
+    public Cilindrical initCilindricalVals(Cilindrical cil){
+            cil.setP(Double.parseDouble(pTF.getText()));
+            cil.setFi(Double.parseDouble(fiTF.getText()));
+            cil.setZ(Double.parseDouble(zCTF.getText()));
+            return cil;
+            
+    }
+    public void initSphericalVals(Spherical sph){
+            sph.setR(Double.parseDouble(rTF.getText()));
+            sph.setTheta(Double.parseDouble(thetaTF.getText()));
+            sph.setFi(Double.parseDouble(fiSTF.getText()));
+    }
+    
+    
     private void ConvertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConvertActionPerformed
-        Cartesian cart = new Cartesian();
-        Cilindrical cil;
-        Spherical sph = new Spherical();
-        
-        //recived
-        cart.setX(Double.parseDouble(xTF.getText()));
-        cart.setY(Double.parseDouble(yTF.getText()));
-        cart.setZ(Double.parseDouble(zTF.getText()));
-        
-        cil = cart.toCilindrical();
-        
-        pTF.setText(""+cil.getP());
-        fiTF.setText(""+cil.getFi());
-        zCTF.setText(""+cil.getZ());
-        
-        
 
+        if(isCartesian){
+            //recived
+            Cartesian cart = new Cartesian();
+            Cilindrical cil;
+            Spherical sph;
+            initCartesianVals(cart);
+            
+            cil = cart.toCilindrical();
+
+            pTF.setText(""+cil.getP());
+            fiTF.setText(""+cil.getFi());
+            zCTF.setText(""+cil.getZ());
+
+            sph = cil.toSpherical();
+
+            rTF.setText(""+sph.getR());
+            thetaTF.setText(""+sph.getTheta());
+            fiSTF.setText(""+sph.getFi());
+
+        }
+        
+        if(isCilindrical){
+            Cartesian cart;
+            Cilindrical cil = new Cilindrical();
+            Spherical sph;
+            //recived
+            cil = initCilindricalVals(cil);
+            
+            cart = cil.toCartesian();
+            xTF.setText(""+cart.getX());
+            yTF.setText(""+cart.getY());
+            zTF.setText(""+cart.getZ());
+            
+            sph = cil.toSpherical();
+
+            rTF.setText(""+sph.getR());
+            thetaTF.setText(""+sph.getTheta());
+            fiSTF.setText(""+sph.getFi());
+        
+        }
+        
     }//GEN-LAST:event_ConvertActionPerformed
 
+    private void rTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rTFActionPerformed
+
+    private void fiSTFPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_fiSTFPropertyChange
+        setSphericalT();
+    }//GEN-LAST:event_fiSTFPropertyChange
+
+    private void xTFPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_xTFPropertyChange
+        setCartesianT();
+    }//GEN-LAST:event_xTFPropertyChange
+
+    private void zTFPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_zTFPropertyChange
+        setCartesianT();
+    }//GEN-LAST:event_zTFPropertyChange
+
+    private void yTFPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_yTFPropertyChange
+        setCartesianT();
+    }//GEN-LAST:event_yTFPropertyChange
+
+    private void pTFPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_pTFPropertyChange
+        setCilindricalT();
+    }//GEN-LAST:event_pTFPropertyChange
+
+    private void fiTFPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_fiTFPropertyChange
+        setCilindricalT();
+    }//GEN-LAST:event_fiTFPropertyChange
+
+    private void rTFPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_rTFPropertyChange
+        setSphericalT();
+    }//GEN-LAST:event_rTFPropertyChange
+
+    private void thetaTFPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_thetaTFPropertyChange
+        setSphericalT();
+    }//GEN-LAST:event_thetaTFPropertyChange
+    
+    /**
+     * auxiliar methods for set the state
+     */
+    public void setCartesianT(){
+        isCartesian = true;
+        isCilindrical = false;
+        isSpherical = false;
+    }
+    public void setCilindricalT(){
+        isCartesian = false;
+        isCilindrical = true;
+        isSpherical = false;
+    }
+    public void setSphericalT(){
+        isCartesian = false;
+        isCilindrical = false;
+        isSpherical = true;
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -259,14 +455,21 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton Convert;
     private javax.swing.JLabel Titulo1;
     private javax.swing.JLabel Titulo2;
+    private javax.swing.JLabel Titulo3;
     private javax.swing.JLabel X;
     private javax.swing.JLabel Y;
     private javax.swing.JLabel Z;
     private javax.swing.JLabel Z2;
+    private javax.swing.JLabel Z3;
+    private javax.swing.JTextField fiSTF;
     private javax.swing.JTextField fiTF;
     private javax.swing.JLabel p;
+    private javax.swing.JLabel p1;
     private javax.swing.JTextField pTF;
     private javax.swing.JLabel phi;
+    private javax.swing.JLabel phi1;
+    private javax.swing.JTextField rTF;
+    private javax.swing.JTextField thetaTF;
     private javax.swing.JTextField xTF;
     private javax.swing.JTextField yTF;
     private javax.swing.JTextField zCTF;
