@@ -10,6 +10,7 @@ import coord.*;
 /**
  *
  * @author Bermu
+ * @version 1.51
  */
 public class MainWindow extends javax.swing.JFrame {
 
@@ -471,7 +472,6 @@ public class MainWindow extends javax.swing.JFrame {
         isCartesian = true;
         isCilindrical = false;
         isSpherical = false;
-        System.out.println("Cartesian "+isCartesian);
     }
     public void setCilindricalT(){
         isCartesian = false;
