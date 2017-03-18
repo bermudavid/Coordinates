@@ -37,8 +37,8 @@ public class MainWindow extends javax.swing.JFrame {
         Y = new javax.swing.JLabel();
         Z = new javax.swing.JLabel();
         xTF = new javax.swing.JTextField();
-        yTF = new javax.swing.JTextField();
         zTF = new javax.swing.JTextField();
+        yTF = new javax.swing.JTextField();
         Titulo2 = new javax.swing.JLabel();
         p = new javax.swing.JLabel();
         pTF = new javax.swing.JTextField();
@@ -67,25 +67,34 @@ public class MainWindow extends javax.swing.JFrame {
 
         xTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         xTF.setText("0");
-        xTF.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                xTFPropertyChange(evt);
+        xTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                xTFFocusGained(evt);
             }
-        });
-
-        yTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        yTF.setText("0");
-        yTF.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                yTFPropertyChange(evt);
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                xTFFocusLost(evt);
             }
         });
 
         zTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         zTF.setText("0");
-        zTF.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                zTFPropertyChange(evt);
+        zTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                zTFFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                zTFFocusLost(evt);
+            }
+        });
+
+        yTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        yTF.setText("0");
+        yTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                yTFFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                yTFFocusLost(evt);
             }
         });
 
@@ -95,14 +104,12 @@ public class MainWindow extends javax.swing.JFrame {
 
         pTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         pTF.setText("0");
-        pTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pTFActionPerformed(evt);
+        pTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                pTFFocusGained(evt);
             }
-        });
-        pTF.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                pTFPropertyChange(evt);
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                pTFFocusLost(evt);
             }
         });
 
@@ -110,17 +117,23 @@ public class MainWindow extends javax.swing.JFrame {
 
         fiTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         fiTF.setText("0");
-        fiTF.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                fiTFPropertyChange(evt);
+        fiTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                fiTFFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fiTFFocusLost(evt);
             }
         });
 
         zCTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         zCTF.setText("0");
-        zCTF.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                zCTFPropertyChange(evt);
+        zCTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                zCTFFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                zCTFFocusLost(evt);
             }
         });
 
@@ -143,30 +156,34 @@ public class MainWindow extends javax.swing.JFrame {
 
         rTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         rTF.setText("0");
-        rTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rTFActionPerformed(evt);
+        rTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                rTFFocusGained(evt);
             }
-        });
-        rTF.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                rTFPropertyChange(evt);
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                rTFFocusLost(evt);
             }
         });
 
         thetaTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         thetaTF.setText("0");
-        thetaTF.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                thetaTFPropertyChange(evt);
+        thetaTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                thetaTFFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                thetaTFFocusLost(evt);
             }
         });
 
         fiSTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         fiSTF.setText("0");
-        fiSTF.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                fiSTFPropertyChange(evt);
+        fiSTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                fiSTFFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fiSTFFocusLost(evt);
             }
         });
 
@@ -220,9 +237,9 @@ public class MainWindow extends javax.swing.JFrame {
                         .addGap(31, 31, 31)
                         .addComponent(xTF, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
-                        .addComponent(zTF, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(yTF, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(yTF, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(zTF, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(269, 269, 269)
                         .addComponent(Titulo1))
@@ -249,8 +266,8 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(Z))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(yTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(zTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(yTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(xTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -288,14 +305,6 @@ public class MainWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void pTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pTFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pTFActionPerformed
-
-    private void zCTFPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_zCTFPropertyChange
-        setCilindricalT();
-    }//GEN-LAST:event_zCTFPropertyChange
-
     public void initCartesianVals(Cartesian cart){
             cart.setX(Double.parseDouble(xTF.getText()));
             cart.setY(Double.parseDouble(yTF.getText()));
@@ -314,9 +323,7 @@ public class MainWindow extends javax.swing.JFrame {
             sph.setFi(Double.parseDouble(fiSTF.getText()));
     }
     
-    
-    private void ConvertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConvertActionPerformed
-
+    public void run(){
         if(isCartesian){
             //recived
             Cartesian cart = new Cartesian();
@@ -358,44 +365,105 @@ public class MainWindow extends javax.swing.JFrame {
         
         }
         
+        if(isSpherical){
+            Cartesian cart;
+            Cilindrical cil;
+            Spherical sph = new Spherical();
+            //recived
+            initSphericalVals(sph);
+            
+            cart = sph.toCartesian();
+            xTF.setText(""+cart.getX());
+            zTF.setText(""+cart.getZ());
+            yTF.setText(""+cart.getY());
+            
+            cil = sph.toCilindrical();
+
+            pTF.setText(""+cil.getP());
+            fiTF.setText(""+cil.getFi());
+            zCTF.setText(""+cil.getZ());
+        
+        }
+    
+    
+    }
+    
+    private void ConvertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConvertActionPerformed
+        run();
     }//GEN-LAST:event_ConvertActionPerformed
 
-    private void rTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rTFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rTFActionPerformed
+    private void xTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_xTFFocusLost
+        run();
+    }//GEN-LAST:event_xTFFocusLost
 
-    private void fiSTFPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_fiSTFPropertyChange
-        setSphericalT();
-    }//GEN-LAST:event_fiSTFPropertyChange
+    private void yTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_yTFFocusLost
+        run();
+    }//GEN-LAST:event_yTFFocusLost
 
-    private void xTFPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_xTFPropertyChange
+    private void zTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_zTFFocusLost
+        run();
+    }//GEN-LAST:event_zTFFocusLost
+
+    private void pTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pTFFocusLost
+        run();
+    }//GEN-LAST:event_pTFFocusLost
+
+    private void xTFFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_xTFFocusGained
         setCartesianT();
-    }//GEN-LAST:event_xTFPropertyChange
+    }//GEN-LAST:event_xTFFocusGained
 
-    private void zTFPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_zTFPropertyChange
+    private void yTFFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_yTFFocusGained
         setCartesianT();
-    }//GEN-LAST:event_zTFPropertyChange
+    }//GEN-LAST:event_yTFFocusGained
 
-    private void yTFPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_yTFPropertyChange
+    private void zTFFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_zTFFocusGained
         setCartesianT();
-    }//GEN-LAST:event_yTFPropertyChange
+    }//GEN-LAST:event_zTFFocusGained
 
-    private void pTFPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_pTFPropertyChange
+    private void pTFFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pTFFocusGained
         setCilindricalT();
-    }//GEN-LAST:event_pTFPropertyChange
+    }//GEN-LAST:event_pTFFocusGained
 
-    private void fiTFPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_fiTFPropertyChange
+    private void fiTFFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fiTFFocusGained
         setCilindricalT();
-    }//GEN-LAST:event_fiTFPropertyChange
+    }//GEN-LAST:event_fiTFFocusGained
 
-    private void rTFPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_rTFPropertyChange
-        setSphericalT();
-    }//GEN-LAST:event_rTFPropertyChange
+    private void zCTFFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_zCTFFocusGained
+        setCilindricalT();
+    }//GEN-LAST:event_zCTFFocusGained
 
-    private void thetaTFPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_thetaTFPropertyChange
+    private void rTFFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_rTFFocusGained
         setSphericalT();
-    }//GEN-LAST:event_thetaTFPropertyChange
-    
+    }//GEN-LAST:event_rTFFocusGained
+
+    private void thetaTFFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_thetaTFFocusGained
+        setSphericalT();
+    }//GEN-LAST:event_thetaTFFocusGained
+
+    private void fiSTFFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fiSTFFocusGained
+        setSphericalT();
+    }//GEN-LAST:event_fiSTFFocusGained
+
+    private void fiTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fiTFFocusLost
+        run();
+    }//GEN-LAST:event_fiTFFocusLost
+
+    private void zCTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_zCTFFocusLost
+        run();
+    }//GEN-LAST:event_zCTFFocusLost
+
+    private void rTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_rTFFocusLost
+        run();
+    }//GEN-LAST:event_rTFFocusLost
+
+    private void thetaTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_thetaTFFocusLost
+        run();
+    }//GEN-LAST:event_thetaTFFocusLost
+
+    private void fiSTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fiSTFFocusLost
+        run();
+    }//GEN-LAST:event_fiSTFFocusLost
+
     /**
      * auxiliar methods for set the state
      */
@@ -403,6 +471,7 @@ public class MainWindow extends javax.swing.JFrame {
         isCartesian = true;
         isCilindrical = false;
         isSpherical = false;
+        System.out.println("Cartesian "+isCartesian);
     }
     public void setCilindricalT(){
         isCartesian = false;
