@@ -62,7 +62,7 @@ public class Spherical {
         Cartesian cart = new Cartesian();
         cart.setX(r*Math.sin(theta)*Math.cos(fi));
         cart.setY(r*Math.sin(theta)*Math.sin(fi));
-        cart.setZ(r*Math.cos(fi));
+        cart.setZ(r*Math.cos(theta));
         return cart;
     }
         
